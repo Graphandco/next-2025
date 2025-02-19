@@ -39,7 +39,7 @@ const BurgerNav = ({ isOpen, setIsOpen }) => {
 			initial="closed"
 		>
 			<motion.button
-				className="text-3xl bg-white text-black hover:text-indigo-500 border-[1px] border-transparent hover:border-indigo-500 transition-colors p-4 rounded-full absolute top-8 right-8"
+				className="text-3xl bg-white text-black hover:text-indigo-500 border-[1px] border-transparent hover:border-indigo-500 transition-colors p-4 rounded-full absolute top-8 right-8 flex items-center justify-center"
 				whileHover={{ rotate: "180deg" }}
 				onClick={() => setIsOpen(false)}
 				whileTap={{ scale: 0.9 }}
@@ -48,12 +48,12 @@ const BurgerNav = ({ isOpen, setIsOpen }) => {
 			</motion.button>
 			<motion.div
 				variants={linkWrapperVariants}
-				className="flex flex-col gap-4 absolute bottom-8 left-8"
+				className="flex flex-col gap-4 justify-center "
 			>
-				<BurgerLink text="Home" />
-				<BurgerLink text="Work" />
-				<BurgerLink text="Careers" />
-				<BurgerLink text="Contact" />
+				<BurgerLink text="Accueil" link="/" />
+				<BurgerLink text="Prestations" link="/prestations" />
+				<BurgerLink text="Réalisations" link="realisations" />
+				<BurgerLink text="Contact" link="contact" />
 			</motion.div>
 		</motion.nav>
 	);

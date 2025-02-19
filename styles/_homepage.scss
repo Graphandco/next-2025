@@ -1,0 +1,19 @@
+.hero {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.home-atouts {
+	position: relative;
+	isolation: isolate;
+	&:after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-position: 25% 75%;
+		background-attachment: fixed;
+		z-index: -1;
+	}
+
+	&__item {
+		backdrop-filter: blur(10px);
+	}
+}

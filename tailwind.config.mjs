@@ -22,6 +22,10 @@ export default {
 			},
 		},
 		extend: {
+			fontFamily: {
+				mostranuova: ["'mostranuova'", "sans-serif"],
+				title: ["'mostranuova5'", "sans-serif"],
+			},
 			backgroundImage: {
 				bgbody: "url('/bg.svg')",
 			},

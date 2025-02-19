@@ -4,7 +4,7 @@ import { ThemeSwitcher } from "../ThemeSwitcher";
 
 const HeaderMenu = () => {
 	return (
-		<nav className=" hidden sm:flex items-center gap-4">
+		<nav className=" hidden md:flex items-center gap-4 text-accent font-semibold">
 			<Link href="/">Accueil</Link>
 			<Link href="/prestations">Prestations</Link>
 			<Link href="/realisations">Réalisations</Link>

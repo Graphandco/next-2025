@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-const BurgerLink = ({ text }) => {
+const BurgerLink = ({ text, link }) => {
 	const navLinkVariants = {
 		open: { x: 0 },
 		closed: { x: 25 },
@@ -19,7 +19,7 @@ const BurgerLink = ({ text }) => {
 				rotate: "-7.5deg",
 			}}
 			rel="nofollow"
-			href="#"
+			href={link}
 		>
 			{text}
 		</motion.a>

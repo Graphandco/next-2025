@@ -10,13 +10,12 @@ const Burger = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div className="items-center text-white flex md:hidden">
-			<span className="text-sm">Open nav</span>
+		<div className="items-center text-white flex md:hidden fixed top-8 right-8">
 			<motion.button
 				whileHover={{ rotate: "180deg" }}
 				whileTap={{ scale: 0.9 }}
 				onClick={() => setIsOpen(true)}
-				className="text-3xl bg-white text-black hover:text-indigo-500 transition-colors p-4 rounded-full"
+				className="text-3xl bg-primary text-black hover:text-indigo-500 transition-colors p-3 rounded-full"
 			>
 				<AlignJustify />
 			</motion.button>
