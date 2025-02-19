@@ -33,36 +33,6 @@ $breakpoints: (
 
 @import "homepage";
 
-body {
-	font-family: "mostranuova", sans-serif;
-	font-size: 1.2rem;
-	position: relative;
-	isolation: isolate;
-	min-height: 100vh;
-}
-body:after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	opacity: 0.6;
-	z-index: -1;
-}
-.dark body:after {
-	background: black;
-}
-.light body:after {
-	background: white;
-}
-.wrapper {
-	width: 1280px;
-	max-width: 100%;
-	margin: auto;
-	padding-inline: 5vw;
-	@media (max-width: 768px) {
-		padding-inline: 25px;
-	}
-}
-
 @layer base {
 	:root {
 		--background: url("/bg.svg");
@@ -125,5 +95,84 @@ body:after {
 	}
 	body {
 		@apply text-foreground;
+	}
+}
+
+body {
+	--primary: hsl(41.92deg 89.8% 50%);
+	font-family: "mostranuova", sans-serif;
+	font-size: 1.2rem;
+	position: relative;
+	isolation: isolate;
+	min-height: 100vh;
+}
+body:after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	opacity: 0.6;
+	z-index: -1;
+}
+.dark body:after {
+	background: black;
+}
+.light body:after {
+	background: white;
+}
+.wrapper {
+	width: 1280px;
+	max-width: 100%;
+	margin: auto;
+	padding-inline: 5vw;
+	@media (max-width: 768px) {
+		padding-inline: 25px;
+	}
+}
+
+h1 {
+	position: relative;
+	margin: 0 auto;
+	padding-block: 2rem;
+	padding-left: 1rem;
+	text-transform: uppercase;
+	font-size: clamp(38px, 28px + 2vw, 50px);
+	letter-spacing: 0.15rem;
+	line-height: 1;
+	text-transform: uppercase;
+	// text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+	display: inline-block;
+	// background: linear-gradient(to right, #a855f7, #ec4899, #eab308, #ec4899, #a855f7, #ec4899, #eab308);
+	background: linear-gradient(
+		to right,
+		var(--primary),
+		white,
+		var(--primary),
+		white,
+		var(--primary),
+		white,
+		var(--primary)
+	);
+	background-size: 300% 300%;
+	background-clip: text;
+	color: transparent;
+	animation: gradient 6s linear infinite;
+
+	&:before {
+		content: "";
+		position: absolute;
+		bottom: 40px;
+		left: 0;
+		width: 10px;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background-color: var(--primary);
+	}
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
 	}
 }

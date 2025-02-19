@@ -8,7 +8,7 @@ import {
 import Link from "next/link";
 import { useRef } from "react";
 
-const MagnetButton = ({ title, link }) => {
+const MagnetButton = ({ title, link, blank }) => {
 	const ref = useRef(null);
 
 	const x = useMotionValue(0);
@@ -49,11 +49,13 @@ const MagnetButton = ({ title, link }) => {
 			onMouseLeave={handleMouseLeave}
 			style={{ transform }}
 			transition={{ type: "spring", stiffness: 200, damping: 50 }}
-			className="group py-2 px-6 relative grid place-content-center rounded-full transition-colors duration-700 ease-out border border-primary overflow-hidden"
+			className="group py-2 px-6 relative grid place-content-center rounded-full transition-colors duration-700 ease-out border-2 border-primary overflow-hidden"
 		>
 			<div className="font-bold relative z-10 text-accent">
 				{link?.length ? (
-					<Link href={link}>{title}</Link>
+					<Link href={link} target={blank ? "blank" : ""}>
+						{title}
+					</Link>
 				) : (
 					<span>{title}</span>
 				)}
