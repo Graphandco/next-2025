@@ -84,7 +84,7 @@ const Content = ({ setFeatureInView, featureInView }) => {
 					<span className="rounded-full bg-indigo-600 px-2 py-1.5 text-xs font-medium text-white">
 						{featureInView.callout}
 					</span>
-					<p className="my-3 text-5xl font-bold">
+					<p className="my-3 text-size-h2 font-bold text-accent">
 						{featureInView.title}
 					</p>
 					<p className="mb-4">{featureInView.description}</p>
@@ -130,7 +130,7 @@ const features = [
 	{
 		id: 1,
 		callout: "Get noticed",
-		title: "It's simple",
+		title: "Bomot",
 		link: "#",
 		description:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor iusto quaerat qui, illo incidunt suscipit fugiat distinctio officia earum eius quae officiis quis harum animi.",

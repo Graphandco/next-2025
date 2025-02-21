@@ -1,9 +1,18 @@
-import Image from "next/image";
-import Home from "@/components/home/Home";
+import Counters from "@/components/home/counters/Counters";
+import Hero from "@/components/home/hero/Hero";
+import HomeAtouts from "@/components/home/home-atouts/HomeAtouts";
+import HomeText from "@/components/home/HomeText";
+import HomeRealisations from "@/components/home/realisations/HomeRealisations";
 
 export default function HomePage() {
 	return (
-		<Home />
+		<>
+			<Hero />
+			<HomeRealisations />
+			<HomeAtouts />
+			<Counters />
+			<HomeText />
+		</>
 		//  <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
 		//    <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
 		//      <Image
