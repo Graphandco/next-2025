@@ -5,14 +5,24 @@ import { useTransform, useScroll, motion } from "framer-motion";
 import Burger from "../burger/Burger";
 import HeaderMenu from "./HeaderMenu";
 
+import { useRef } from "react";
+import useMeasureHeight from "@/hooks/useMeasureHeight";
+import { useHeaderHeight } from "@/context/HeaderHeightContext";
+
 const Header = () => {
+	const headerRef = useRef(null);
+	const { updateHeaderHeight } = useHeaderHeight();
+
+	// Mesurer la hauteur du header
+	useMeasureHeight(headerRef, updateHeaderHeight);
+
 	const { scrollY } = useScroll();
 	const opacityValue = useTransform(scrollY, [0, 150], [0, 1]);
 	const scaleValue = useTransform(scrollY, [0, 150], [1, 0.9]);
 	const paddingValue = useTransform(scrollY, [0, 150], ["1rem", "0.5rem"]);
 
 	return (
-		<header className="header sticky top-0 z-50">
+		<header ref={headerRef} className="header sticky top-0 z-50">
 			<motion.div
 				className="header__overlay"
 				style={{ opacity: opacityValue }}

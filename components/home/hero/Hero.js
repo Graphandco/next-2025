@@ -1,11 +1,17 @@
+"use client";
 import MagnetButton from "@/components/ui/MagnetButton";
 import Reveal from "@/components/ui/Reveal";
 import LottieRocket from "@/lottie/LottieRocket";
-import React from "react";
+import { useHeaderHeight } from "@/context/HeaderHeightContext";
 
 const Hero = () => {
+	const { headerHeight } = useHeaderHeight();
 	return (
-		<section className="min-h-screen hero" id="hero">
+		<section
+			className="hero flex items-center"
+			id="hero"
+			style={{ minHeight: `calc(100dvh - ${headerHeight}px)` }}
+		>
 			<div className="wrapper grid sm:grid-cols-[1.5fr_1fr]">
 				<div className="grid gap-5 content-center">
 					<Reveal className="my-24">
@@ -25,7 +31,9 @@ const Hero = () => {
 						<MagnetButton title="Click here" />
 					</Reveal>
 				</div>
-				<LottieRocket />
+				<div className="max-w-72">
+					<LottieRocket />
+				</div>
 			</div>
 		</section>
 	);
