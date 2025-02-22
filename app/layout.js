@@ -6,6 +6,8 @@ import Footer from "@/components/footer/Footer";
 import BodyClassHandler from "@/utils/BodyClassHandler";
 import LayoutWrapper from "@/components/LayoutWrapper";
 
+import { HeaderHeightProvider } from "@/context/HeaderHeightContext";
+
 // const geistSans = Geist({
 // 	variable: "--font-geist-sans",
 // 	subsets: ["latin"],
@@ -35,11 +37,13 @@ export default function RootLayout({ children }) {
 					enableSystem
 					disableTransitionOnChange
 				>
-					<div className="bg-bgbody bg-fixed bg-cover relative z-10">
-						<Header />
-						<LayoutWrapper>{children}</LayoutWrapper>
-					</div>
-					<Footer />
+					<HeaderHeightProvider>
+						<div className="bg-bgbody bg-fixed bg-cover relative z-10">
+							<Header />
+							<LayoutWrapper>{children}</LayoutWrapper>
+						</div>
+						<Footer />
+					</HeaderHeightProvider>
 				</ThemeProvider>
 			</body>
 		</html>
