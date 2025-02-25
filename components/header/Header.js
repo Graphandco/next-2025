@@ -22,7 +22,10 @@ const Header = () => {
 	const paddingValue = useTransform(scrollY, [0, 150], ["1rem", "0.5rem"]);
 
 	return (
-		<header ref={headerRef} className="header sticky top-0 z-50">
+		<header
+			ref={headerRef}
+			className="header sticky top-0 z-50 overflow-hidden w-full"
+		>
 			<motion.div
 				className="header__overlay"
 				style={{ opacity: opacityValue }}

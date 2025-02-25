@@ -5,23 +5,26 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { FiDollarSign, FiEye, FiPlay, FiSearch } from "react-icons/fi";
 
-const HomeRealisations = () => {
+const HomeRealisations = ({ data }) => {
 	const [featureInView, setFeatureInView] = useState(features[0]);
+	const homeDataMdx = data.filter((mdx) => mdx.homepage === true);
 	return (
-		<section className="relative mx-auto max-w-7xl home-realisations">
-			<SlidingFeatureDisplay featureInView={featureInView} />
+		<section className="relative home-realisations bg-black/20">
+			<div className="wrapper">
+				<SlidingFeatureDisplay featureInView={featureInView} />
 
-			{/* Offsets the height of SlidingFeatureDisplay so that it renders on top of Content to start */}
-			<div className="-mt-[100vh] hidden md:block" />
+				{/* Offsets the height of SlidingFeatureDisplay so that it renders on top of Content to start */}
+				<div className="-mt-[100vh] hidden md:block" />
 
-			{features.map((s) => (
-				<Content
-					key={s.id}
-					featureInView={s}
-					setFeatureInView={setFeatureInView}
-					{...s}
-				/>
-			))}
+				{homeDataMdx.map((s, index) => (
+					<Content
+						key={index}
+						featureInView={s}
+						setFeatureInView={setFeatureInView}
+						{...s}
+					/>
+				))}
+			</div>
 		</section>
 	);
 };
@@ -81,17 +84,24 @@ const Content = ({ setFeatureInView, featureInView }) => {
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5, ease: "easeInOut" }}
 				>
-					<span className="rounded-full bg-indigo-600 px-2 py-1.5 text-xs font-medium text-white">
+					{/* <span className="rounded-full bg-indigo-600 px-2 py-1.5 text-xs font-medium text-white">
 						{featureInView.callout}
-					</span>
+					</span> */}
 					<p className="my-3 text-size-h2 font-bold text-accent">
 						{featureInView.title}
 					</p>
 					<p className="mb-4">{featureInView.description}</p>
 					<MagnetButton
 						title="Voir le site"
-						link={featureInView.link}
+						link={featureInView.slug}
 						blank
+						outline
+					/>
+					<br />
+					<MagnetButton
+						title="En savoir plus"
+						link={featureInView.link}
+						small
 					/>
 				</motion.div>
 				<motion.div
@@ -114,11 +124,13 @@ const ExampleFeature = ({ featureInView }) => {
 		// </span>
 		<div className="home-realisations__featured inline-block">
 			<Image
-				src={`/cover-${featureInView.image}.jpg`}
+				src={`/projects/cover-${featureInView.slug}.webp`}
 				width={500}
-				height={500}
+				height={300}
+				style={{ width: "500px", height: "300px", objectFit: "cover" }}
 				alt={featureInView.title}
 				className="rounded-xl"
+				quality={75}
 			/>
 		</div>
 	);
@@ -145,7 +157,7 @@ const features = [
 		link: "#",
 		description:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor iusto quaerat qui, illo incidunt suscipit fugiat distinctio officia earum eius quae officiis quis harum animi.",
-		image: "loide",
+		image: "loide-guitare",
 		contentPosition: "l",
 		Icon: FiSearch,
 	},
@@ -156,7 +168,7 @@ const features = [
 		link: "#",
 		description:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor iusto quaerat qui, illo incidunt suscipit fugiat distinctio officia earum eius quae officiis quis harum animi.",
-		image: "willow",
+		image: "willow-tarot",
 		contentPosition: "r",
 		Icon: FiPlay,
 	},

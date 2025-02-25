@@ -26,12 +26,14 @@ const HeaderMenu = () => {
 		},
 	];
 	return (
-		<nav className=" hidden md:flex items-center gap-4">
+		<nav className=" hidden md:flex items-center gap-5">
 			{links.map((link, index) => (
 				<MagnetElement key={index}>
 					<Link
-						className={`hover:text-accent font-semibold transition-colors ${
-							pathname == link.url ? "text-accent" : ""
+						className={`menu-item hover:text-accent font-semibold transition-colors ${
+							pathname == link.url
+								? "text-accent active"
+								: "text-foreground"
 						}`}
 						href={link.url}
 					>

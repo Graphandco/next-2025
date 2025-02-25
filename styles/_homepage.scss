@@ -2,6 +2,7 @@
 	h1 {
 		font-size: clamp(50px, 20px + 5vw, 80px);
 		text-transform: none;
+		padding: 0;
 		&:before {
 			content: none;
 		}

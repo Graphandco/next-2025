@@ -1,14 +1,17 @@
+import { getMdxData } from "@/utils/mdxUtils";
 import Counters from "@/components/home/counters/Counters";
 import Hero from "@/components/home/hero/Hero";
 import HomeAtouts from "@/components/home/home-atouts/HomeAtouts";
 import HomeText from "@/components/home/HomeText";
 import HomeRealisations from "@/components/home/realisations/HomeRealisations";
 
-export default function HomePage() {
+export default async function HomePage() {
+	const data = await getMdxData("markdown/realisations");
+
 	return (
 		<>
 			<Hero />
-			<HomeRealisations />
+			<HomeRealisations data={data} />
 			<HomeAtouts />
 			<Counters />
 			<HomeText />

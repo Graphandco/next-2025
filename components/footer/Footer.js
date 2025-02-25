@@ -39,13 +39,13 @@ const Footer = () => {
 						<MagnetElement>
 							{contact.link && contact.linkValue ? (
 								<a
-									className="flex justify-center p-4 border-2 border-primary text-white"
+									className="flex justify-center p-4 border-2 border-primary text-white rounded-sm"
 									href={contact.link}
 								>
 									{contact.icon}
 								</a>
 							) : (
-								<span className="flex justify-center p-4 border-2 border-primary text-white">
+								<span className="flex justify-center p-4 border-2 border-primary text-white rounded-sm">
 									{contact.icon}
 								</span>
 							)}
@@ -80,7 +80,7 @@ const Footer = () => {
 								</Link>
 							</li>
 							<li className="text-white hover:text-primary transition-colors">
-								<Link href="/politique-de-confidentialite">
+								<Link href="/politique-confidentialite">
 									Politique de confidentialité
 								</Link>
 							</li>

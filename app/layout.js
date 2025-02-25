@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import BodyClassHandler from "@/utils/BodyClassHandler";
-import LayoutWrapper from "@/components/LayoutWrapper";
+import LayoutWrapper from "@/components/ui/LayoutWrapper";
 
 import { HeaderHeightProvider } from "@/context/HeaderHeightContext";
 

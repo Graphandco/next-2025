@@ -34,9 +34,9 @@ export default {
 				"size-h2": ["var(--size-h2)", "1"],
 				"size-h3": ["var(--size-h3)", "1"],
 				"size-h4": ["var(--size-h4)", "1"],
-				"size-h5": "1.4rem",
-				"size-h6": "1.3rem",
-				"size-small": "1.1rem",
+				"size-h5": "var(--size-h5)",
+				"size-h6": "var(--size-h6)",
+				"size-small": "var(--size-small)",
 			},
 			fontFamily: {
 				mostranuova: ["'mostranuova'", "sans-serif"],

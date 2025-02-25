@@ -1,7 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import MagnetButton from "../ui/MagnetButton";
+import MagnetButton from "../../components/ui/MagnetButton";
 import Image from "next/image";
 
 export const ContactForm = () => {

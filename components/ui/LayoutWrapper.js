@@ -1,6 +1,6 @@
 "use client";
 
-import { isHome } from "@/lib/utils";
+import { isHome } from "@/utils/utils";
 
 export default function LayoutWrapper({ children }) {
 	const homepage = isHome();

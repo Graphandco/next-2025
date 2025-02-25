@@ -1,12 +1,13 @@
-import { ContactForm } from "@/components/contact/ContactForm";
+import { ContactForm } from "@/app/contact/ContactForm";
+import Reveal from "@/components/ui/Reveal";
 import ContactContent from "@/markdown/contact.mdx";
-
-import React from "react";
 
 const ContactPage = () => {
 	return (
 		<div className="wrapper">
-			<h1>Contact</h1>
+			<Reveal>
+				<h1>Contact</h1>
+			</Reveal>
 			{/* TEST HN */}
 			{/* <div>
 			<h2 className="py-7">

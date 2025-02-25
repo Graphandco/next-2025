@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "homepage";
 @use "markdown";
+@use "realisations";
 @use "contact";
 $breakpoints: (
 	xs: 400px,
@@ -68,7 +69,7 @@ $breakpoints: (
 		--size-h4: clamp(1.6rem, 15px + 2vw, 2rem);
 		--size-h5: "1.4rem";
 		--size-h6: "1.3rem";
-		--size-small: "1.1rem";
+		--size-small: "0.9rem";
 	}
 }
 
@@ -148,7 +149,7 @@ h1,
 	font-size: var(--size-h1);
 	font-family: "mostranuova5";
 	letter-spacing: 0.15rem;
-	line-height: 1;
+	line-height: clamp(45px, 7vw, 70px);
 	text-transform: uppercase;
 	display: inline-block;
 	background: linear-gradient(
@@ -169,7 +170,7 @@ h1,
 	&:before {
 		content: "";
 		position: absolute;
-		bottom: 25px;
+		bottom: 35px;
 		left: 0;
 		width: 10px;
 		aspect-ratio: 1;
@@ -201,6 +202,28 @@ p:not(:last-child) {
 	padding-inline: 5vw;
 	@media (max-width: 768px) {
 		padding-inline: 25px;
+	}
+}
+
+.menu-item {
+	position: relative;
+	&:before {
+		content: "";
+		position: absolute;
+		left: -10px;
+		bottom: 3px;
+		width: 6px;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background-color: var(--primary);
+		scale: 0;
+		opacity: 0;
+		transition: 0.25s;
+	}
+	&:hover:before,
+	&.active:before {
+		scale: 1;
+		opacity: 1;
 	}
 }
 
