@@ -1,8 +1,25 @@
+import { Resend } from "resend";
 import { ContactForm } from "@/app/contact/ContactForm";
 import Reveal from "@/components/ui/Reveal";
 import ContactContent from "@/markdown/contact.mdx";
+import EmailTemplate from "@/components/email-template";
 
-const ContactPage = () => {
+const ContactPage = async () => {
+	async function handleSendEmail() {
+		"use server";
+
+		const resend = new Resend(process.env.RESEND_API_KEY);
+
+		const { data } = await resend.emails.send({
+			from: "Site Graph and Co <contact@graphandco.com>",
+			to: ["contact@graphandco.com"],
+			subject: "Nouveau message de votre site",
+			// react: EmailTemplate({ firstName: "John" }),
+			html: "<strong>It works!</strong>",
+		});
+
+		console.log(data);
+	}
 	return (
 		<div className="wrapper">
 			<Reveal>
@@ -34,7 +51,7 @@ const ContactPage = () => {
 			<div className="markdown">
 				<ContactContent />
 			</div>
-			<ContactForm />
+			<ContactForm handleSendEmail={handleSendEmail} />
 		</div>
 	);
 };
