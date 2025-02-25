@@ -4,7 +4,7 @@ import Link from "next/link";
 import MagnetButton from "../../components/ui/MagnetButton";
 import Image from "next/image";
 
-export const ContactForm = ({ handleSendEmail }) => {
+export const ContactForm = () => {
 	const {
 		handleSubmit,
 		register,
@@ -12,11 +12,10 @@ export const ContactForm = ({ handleSendEmail }) => {
 	} = useForm();
 	const onSubmit = (data) => {
 		console.log(data);
-		handleSendEmail();
 	};
 	return (
 		<section id="contact-form" className="contact-form mt-12">
-			<form action={handleSendEmail}>
+			<form>
 				<div className="form-title">
 					<h3>Nous écrire</h3>
 				</div>
@@ -157,8 +156,7 @@ export const ContactForm = ({ handleSendEmail }) => {
 
 				<MagnetButton
 					title="Envoyer"
-					type="submit"
-					// onClick={handleSubmit(onSubmit)}
+					onClick={handleSubmit(onSubmit)}
 				/>
 			</form>
 			<Image
